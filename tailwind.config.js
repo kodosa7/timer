@@ -6,7 +6,13 @@ module.exports = {
   theme: {
     extend: {
      fontFamily: {
-        "arial": ["Arial", "sans-serif"]
+        "sans": ["Arial", "sans-serif"],
+        "mono": ["Chivo Mono", "monospace"]
+      },
+      colors: {
+        "black": "#343434",
+        "yellow": "#fffa72",
+        "blue": "#0f62fe"
       }
     }
   },
