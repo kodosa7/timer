@@ -2,6 +2,10 @@
     margin: 0 auto;
 }
 
+body {
+    text-align: center;
+}
+
 a {
     color: #1755d1;
 }

@@ -42,7 +42,7 @@ const Timer = () => {
                 {isTimerRunning ?
                     `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
                     :
-                    <span className="text-blue">STOP!</span>
+                    <span className="text-blue">STOP</span>
                 }
             </h1>
         </>
