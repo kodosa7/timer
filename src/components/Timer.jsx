@@ -1,13 +1,17 @@
 import {useState, useEffect} from 'react';
+import Button from "./Button"
 
 const Timer = () => {
     const [minutes, setMinutes] = useState(1);
-    const [seconds, setSeconds] = useState(4.5);
+    const [seconds, setSeconds] = useState(30.5);
     const [semicolon, setSemicolon] = useState(':');
-    const [isTimerRunning, setIsTimerRunning] = useState(true);
+    const [isTimerRunning, setIsTimerRunning] = useState(false);
 
+    
     useEffect( () => {
-        const interval = setInterval( () => {
+        if (isTimerRunning && handleButtonClick()) {
+            // countdown and flashing semicolon logic
+            const interval = setInterval( () => {
                 if (seconds > 0) {
                     setSeconds(seconds - .5);
                     if (semicolon === ' ') {
@@ -16,24 +20,29 @@ const Timer = () => {
                         setSemicolon(' ');
                     };
                 } else {
-                    if (minutes === 0) {
-                        clearInterval(interval);
-                        // setSemicolon(':');
-                        setIsTimerRunning(false);
-
-                        // timer reached 0, now what... ???
-
-                    } else {
-                        setMinutes(minutes - 1);
-                        setSeconds(59.5);
-                        setSemicolon(':');
+                        if (minutes === 0) {
+                            clearInterval(interval);
+                            setIsTimerRunning(false);
+                            // timer reached 00:00
+                            
+                        } else {
+                            setMinutes(minutes - 1);
+                            setSeconds(59.5);
+                            setSemicolon(':');
+                        }
                     }
-                }
-        }, 500);
-
-        return () => clearInterval(interval);
-    }, [minutes, seconds]);
-
+                }, 500);
+                
+                return () => clearInterval(interval);
+            }
+        }, [minutes, seconds]);
+        
+    const handleButtonClick = (dataFromButton) => {
+        console.log("Data from Button:", dataFromButton);
+        setIsTimerRunning(true);
+        return dataFromButton;
+    };
+    
     // padStart(2, ..) is used to ensure minutes and seconds are always displayed with 2 digits
     return (
         <>
@@ -44,6 +53,7 @@ const Timer = () => {
                     <span className="text-blue">STOP</span>
                 }
             </h1>
+            <Button onButtonClick={handleButtonClick}/>
         </>
     );
 };
