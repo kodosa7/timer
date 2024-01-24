@@ -1,24 +1,24 @@
 import {useState, useEffect} from 'react';
 
 const Timer = () => {
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(2);
-    const [semicolon, setSemicolon] = useState(' ');
+    const [minutes, setMinutes] = useState(1);
+    const [seconds, setSeconds] = useState(4.5);
+    const [semicolon, setSemicolon] = useState(':');
     const [isTimerRunning, setIsTimerRunning] = useState(true);
 
     useEffect( () => {
         const interval = setInterval( () => {
-                if (seconds > 0 ) {
+                if (seconds > 0) {
                     setSeconds(seconds - .5);
-                    if (semicolon === ':') {
-                        setSemicolon(' ');
-                    } else {
+                    if (semicolon === ' ') {
                         setSemicolon(':');
+                    } else {
+                        setSemicolon(' ');
                     };
                 } else {
                     if (minutes === 0) {
                         clearInterval(interval);
-                        setSemicolon(':');
+                        // setSemicolon(':');
                         setIsTimerRunning(false);
 
                         // timer reached 0, now what... ???
@@ -29,7 +29,6 @@ const Timer = () => {
                         setSemicolon(':');
                     }
                 }
-            
         }, 500);
 
         return () => clearInterval(interval);
