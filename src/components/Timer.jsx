@@ -6,9 +6,11 @@ const Timer = () => {
     const [seconds, setSeconds] = useState(30.5);
     const [semicolon, setSemicolon] = useState(':');
     const [isTimerRunning, setIsTimerRunning] = useState(false);
+    const [isEndReached, setIsEndReached] = useState(false);
 
     useEffect( () => {
         if (isTimerRunning) {
+            setIsEndReached(false);
             // countdown and flashing semicolon logic
             const interval = setInterval( () => {
                 if (seconds > 0) {
@@ -22,6 +24,8 @@ const Timer = () => {
                         if (minutes === 0) {
                             clearInterval(interval);
                             setIsTimerRunning(false);
+                            setSemicolon(":");
+                            setIsEndReached(true);
                             // timer reached 00:00
                             
                         } else {
@@ -57,9 +61,10 @@ const Timer = () => {
             <h1 className="font-mono font-bold text-8xl pt-12">
                 {isTimerRunning ?
                     `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
-                    :
-                    // <span className="text-blue">STOP</span>
-                    `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
+                    : isEndReached ?
+                    <span className="text-blue">STOP</span>
+                        :
+                        `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
                 }
             </h1>
             <Button onButtonClick={handleTimerState}/>
