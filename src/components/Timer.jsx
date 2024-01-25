@@ -7,9 +7,8 @@ const Timer = () => {
     const [semicolon, setSemicolon] = useState(':');
     const [isTimerRunning, setIsTimerRunning] = useState(false);
 
-    
     useEffect( () => {
-        if (isTimerRunning && handleButtonClick()) {
+        if (isTimerRunning) {
             // countdown and flashing semicolon logic
             const interval = setInterval( () => {
                 if (seconds > 0) {
@@ -35,10 +34,10 @@ const Timer = () => {
                 
                 return () => clearInterval(interval);
             }
-        }, [minutes, seconds]);
+        }, [isTimerRunning, semicolon, minutes, seconds]);
         
     const handleButtonClick = (dataFromButton) => {
-        console.log("Data from Button:", dataFromButton);
+        console.log("Data from current Button:", dataFromButton);
         setIsTimerRunning(true);
         return dataFromButton;
     };
