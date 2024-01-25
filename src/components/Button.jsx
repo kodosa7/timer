@@ -1,34 +1,36 @@
 import { useState } from "react";
 
 const Button = ({ onButtonClick }) => {
-    const [isStartButtonClicked, setIsStartButtonClicked] = useState(false);
-    const [isStopButtonClicked, setIsStopButtonClicked] = useState(false);
-    const [isResetButtonClicked, setIsResetButtonClicked] = useState(false);
+    const [isStartButton, setIsStartButton] = useState(true);
+    const [isStopButton, setIsStopButton] = useState(false);
+    const [isResetButton, setIsResetButton] = useState(false);
     const [buttonLabel, setButtonLabel] = useState("Start");
+    const [timerState, setTimerState] = useState(1);
 
     const handleButtonClick = () => {
-        console.log("handleButtonPress() function launched");
-        
-        
-        if (buttonLabel === "Start") {
-            setIsStartButtonClicked(true);
-            setIsStopButtonClicked(false);
-            setIsResetButtonClicked(false);
+        if (isStartButton) {
+            setIsStartButton(false);
+            setIsStopButton(true);
+            setIsResetButton(false);
             setButtonLabel("Stop");
-            onButtonClick(isStartButtonClicked);
-        } else if (buttonLabel === "Stop") {
-            setIsStartButtonClicked(false);
-            setIsStopButtonClicked(true);
-            setIsResetButtonClicked(false);
+            setTimerState((prevState) => prevState + 1);
+            onButtonClick(timerState);
+        } else if (isStopButton) {
+            setIsStartButton(false);
+            setIsStopButton(false);
+            setIsResetButton(true);
             setButtonLabel("Reset");
-            onButtonClick(isStopButtonClicked);
-        } else if (buttonLabel === "Reset") {
-            setIsStartButtonClicked(false);
-            setIsStopButtonClicked(false);
-            setIsResetButtonClicked(true);
-            onButtonClick(isResetButtonClicked);
+            setTimerState((prevState) => prevState + 1);
+            onButtonClick(timerState);
+        } else if (isResetButton) {
+            setIsStartButton(true);
+            setIsStopButton(false);
+            setIsResetButton(false);
+            setButtonLabel("Start");
+            setTimerState((prevState) => prevState - 2);
+            onButtonClick(timerState);
         }
-    }
+    };
 
     return (
         <div className="py-5">

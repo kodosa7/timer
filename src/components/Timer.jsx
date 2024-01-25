@@ -36,10 +36,19 @@ const Timer = () => {
             }
         }, [isTimerRunning, semicolon, minutes, seconds]);
         
-    const handleButtonClick = (dataFromButton) => {
-        console.log("Data from current Button:", dataFromButton);
-        setIsTimerRunning(true);
-        return dataFromButton;
+    const handleTimerState = (dataFromButton) => {
+        console.log("State from Button:", dataFromButton);
+        if (dataFromButton === 1) {
+            setIsTimerRunning(true);
+        } else if (dataFromButton === 2) {
+            setIsTimerRunning(false);
+            setSemicolon(":");
+        } else if (dataFromButton === 3) {
+            setIsTimerRunning(false);
+            setMinutes(1);
+            setSeconds(30.5);
+            setSemicolon(":");
+        }
     };
     
     // padStart(2, ..) is used to ensure minutes and seconds are always displayed with 2 digits
@@ -49,10 +58,11 @@ const Timer = () => {
                 {isTimerRunning ?
                     `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
                     :
-                    <span className="text-blue">STOP</span>
+                    // <span className="text-blue">STOP</span>
+                    `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
                 }
             </h1>
-            <Button onButtonClick={handleButtonClick}/>
+            <Button onButtonClick={handleTimerState}/>
         </>
     );
 };
