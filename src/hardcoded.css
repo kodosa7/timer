@@ -47,13 +47,10 @@ button:hover {
 }
 
 .eggshell {
+    background-color: #fffa72;
     background-image: url("./assets/eggshell-i.svg");
-    height: 3rem;
-    background-repeat: repeat-x;
-    background-color: #30ffff;
-    border: 2px solid red;
-    /* background-position: bottom; */
-    /* background-size: auto 3rem; */
+    height: 2rem;
+    width: 100%;
 }
 
 .logo {
