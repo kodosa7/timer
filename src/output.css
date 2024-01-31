@@ -546,6 +546,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.m-2{
+  margin: 0.5rem;
+}
+
 .w-28{
   width: 7rem;
 }
@@ -553,11 +557,6 @@ video {
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-5{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .pt-12{
@@ -580,11 +579,6 @@ video {
 
 .font-bold{
   font-weight: 700;
-}
-
-.text-blue{
-  --tw-text-opacity: 1;
-  color: rgb(15 98 254 / var(--tw-text-opacity));
 }
 
 .text-white{

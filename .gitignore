@@ -25,3 +25,4 @@ dist-ssr
 
 # Own
 vite.config.js.timestamp*
+*_old

@@ -1,74 +1,85 @@
-import {useState, useEffect} from 'react';
-import Button from "./Button"
+import { useState, useEffect } from 'react';
 
 const Timer = () => {
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(2.5);
+    const initialTime = 10.5; // 1 minute and 30 seconds in seconds
+    const [time, setTime] = useState(initialTime);
+    const [isRunning, setIsRunning] = useState(false);
     const [semicolon, setSemicolon] = useState(':');
-    const [isTimerRunning, setIsTimerRunning] = useState(false);
-    const [isEndReached, setIsEndReached] = useState(false);
+    const [buttonLabel, setButtonLabel] = useState('Start');
+    const [endReached, setEndReached] = useState(false);
 
-    useEffect( () => {
-        if (isTimerRunning) {
-            setIsEndReached(false);
-            // countdown and flashing semicolon logic
-            const interval = setInterval( () => {
-                if (seconds > 0) {
-                    setSeconds(seconds - .5);
-                    if (semicolon === ' ') {
-                        setSemicolon(':');
-                    } else {
-                        setSemicolon(' ');
-                    };
+    useEffect(() => {
+        let timer;
+
+        if (isRunning && time > 0) {
+            timer = setInterval(() => {
+                setTime((prevTime) => prevTime - .5);
+                if (semicolon === " ") {
+                    setSemicolon(":");
                 } else {
-                        if (minutes === 0) {
-                            clearInterval(interval);
-                            setIsTimerRunning(false);
-                            setSemicolon(":");
-                            setIsEndReached(true);
-                            // timer reached 00:00
-                            console.log("end reached");
-                            
-                        } else {
-                            setMinutes(minutes - 1);
-                            setSeconds(59.5);
-                            setSemicolon(':');
-                        }
-                    }
-                }, 500);
-                
-                return () => clearInterval(interval);
-            }
-        }, [isTimerRunning, semicolon, minutes, seconds]);
-        
-    const handleTimerState = (dataFromButton) => {
-        console.log("State from Button:", dataFromButton);
-        if (dataFromButton === 1) {
-            setIsTimerRunning(true);
-        } else if (dataFromButton === 2) {
-            setIsTimerRunning(false);
-            setSemicolon(":");
-        } else if (dataFromButton === 3) {
-            setIsTimerRunning(false);
-            setMinutes(1);
-            setSeconds(30.5);
+                    setSemicolon(" ");
+                }
+            }, 500);
+        } else if (time === 0) {
+            console.log("end reached");
+            setEndReached(true);
             setSemicolon(":");
         }
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, [isRunning, semicolon, time]);
+
+    const handleButtonClick = () => {
+        if (!isRunning) {
+            // Start button logic
+            setIsRunning(true);
+            setButtonLabel('Stop');
+        } else {
+            // Stop button logic
+            setIsRunning(false);
+            setButtonLabel('Start');
+        }
     };
-    
-    // padStart(2, ..) is used to ensure minutes and seconds are always displayed with 2 digits
+
+    const handleResetClick = () => {
+        // Reset button logic
+        setIsRunning(false);
+        setTime(initialTime);
+        setButtonLabel('Start');
+        setSemicolon(":");
+    };
+
+    const handleFinalResetClick = () => {
+        // Final Reset button logic
+        setIsRunning(false);
+        setTime(initialTime);
+        setButtonLabel('Start');
+        setEndReached(false);
+        setSemicolon(":");
+    };
+
     return (
-        <>
+        <div>
             <h1 className="font-mono font-bold text-8xl pt-12">
-                {!isEndReached ?
-                    `${String(minutes).padStart(2, '0')}${semicolon}${String(Math.floor(seconds)).padStart(2, '0')}`
-                    : 
-                    <span className="text-blue">STOP</span>
-                      
-                }
+                {Math.floor(time / 60).toString().padStart(2, '0')}{semicolon}{Math.floor((time % 60)).toString().padStart(2, '0')}
             </h1>
-            <Button onButtonClick={handleTimerState} isEndReached={isEndReached} />
-        </>
+            {
+                !endReached
+                    ?
+                        <button className="text-white m-2" onClick={handleButtonClick}>{buttonLabel}</button>
+                    :
+                        <button className="text-white m-2" onClick={handleFinalResetClick}>Reset</button>
+            }
+            {
+                !endReached && !isRunning && time !== initialTime
+                    ?
+                        <button className="text-white m-2" onClick={handleResetClick}>Reset</button>
+                    :
+                        <span></span>
+            }
+        </div>
     );
 };
 
