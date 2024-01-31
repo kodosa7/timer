@@ -21,7 +21,6 @@ h1 {
 
 button {
     border-radius: 8px;
-    border: 2px solid transparent;
     padding: 0.4em 2.3em;
     font-size: 1.2em;
     font-weight: 500;
@@ -30,12 +29,9 @@ button {
     cursor: pointer;
     transition: 0.25s;
 }
-  button:hover {
+
+button:hover {
     background-color: #1448b2;
-}
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
 }
 
 .header-container {
@@ -46,13 +42,23 @@ button {
     display: flex;
     justify-content: space-around;
     align-items: center; 
-    background-color: #fffa72;
     max-width: 720px;
+    padding-bottom: 1.3rem;
+}
+
+.eggshell {
+    background-image: url("./assets/eggshell-i.svg");
+    height: 3rem;
+    background-repeat: repeat-x;
+    background-color: #30ffff;
+    border: 2px solid red;
+    /* background-position: bottom; */
+    /* background-size: auto 3rem; */
 }
 
 .logo {
     margin-left: 0;
-    padding-right 1rem;
+    padding-right: 1rem;
 }
 
 .label {

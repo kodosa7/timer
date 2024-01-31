@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const Timer = () => {
-    const initialTime = 10.5; // 1 minute and 30 seconds in seconds
+    const initialTime = 90.5; // 1 minute and 30 seconds in seconds
     const [time, setTime] = useState(initialTime);
     const [isRunning, setIsRunning] = useState(false);
     const [semicolon, setSemicolon] = useState(':');
@@ -11,7 +11,7 @@ const Timer = () => {
     useEffect(() => {
         let timer;
 
-        if (isRunning && time > 0) {
+        if (isRunning && time > -.5) {
             timer = setInterval(() => {
                 setTime((prevTime) => prevTime - .5);
                 if (semicolon === " ") {
@@ -20,8 +20,7 @@ const Timer = () => {
                     setSemicolon(" ");
                 }
             }, 500);
-        } else if (time === 0) {
-            console.log("end reached");
+        } else if (time === -.5) {
             setEndReached(true);
             setSemicolon(":");
         }
@@ -62,20 +61,29 @@ const Timer = () => {
 
     return (
         <div>
-            <h1 className="font-mono font-bold text-8xl pt-12">
-                {Math.floor(time / 60).toString().padStart(2, '0')}{semicolon}{Math.floor((time % 60)).toString().padStart(2, '0')}
+            <h1 className="text-3xl py-8">
+                Pondělní povídání
+            </h1>
+            <h1 className="font-mono font-bold text-8xl py-12 text-black bg-lightblue">
+                {
+                    !endReached
+                        ?
+                            `${String(Math.floor(time / 60)).padStart(2, '0')}${semicolon}${String(Math.floor(time % 60)).padStart(2, '0')}`
+                        :
+                            <span className="text-blue">STOP!</span>
+                }
             </h1>
             {
                 !endReached
                     ?
-                        <button className="text-white m-2" onClick={handleButtonClick}>{buttonLabel}</button>
+                        <button className="text-white mx-2 my-8" onClick={handleButtonClick}>{buttonLabel}</button>
                     :
-                        <button className="text-white m-2" onClick={handleFinalResetClick}>Reset</button>
+                        <button className="text-white mx-2 my-8" onClick={handleFinalResetClick}>Reset</button>
             }
             {
                 !endReached && !isRunning && time !== initialTime
                     ?
-                        <button className="text-white m-2" onClick={handleResetClick}>Reset</button>
+                        <button className="text-white mx-2 my-8" onClick={handleResetClick}>Reset</button>
                     :
                         <span></span>
             }

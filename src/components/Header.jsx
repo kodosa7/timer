@@ -12,6 +12,7 @@ export default function Header() {
                 </div>
                 <div className="empty-space"></div>
             </div>
+            <div className="eggshell"></div>
         </div>
     )
 }
