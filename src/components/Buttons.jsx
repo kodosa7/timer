@@ -11,9 +11,6 @@ const Buttons = (props) => {
 
     return (
         <>
-            <h1 className="text-3xl pt-4 pb-8">
-                Pondělní povídání
-            </h1>
             <h1 className="font-mono font-bold text-8xl py-12 text-black bg-lightblue">
                 {
                     !endReached

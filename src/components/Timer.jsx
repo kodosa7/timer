@@ -72,7 +72,6 @@ const Timer = () => {
             initialTime={initialTime}
             semicolon={semicolon}
         />
-
     );
 };
 

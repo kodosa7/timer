@@ -15,6 +15,14 @@ export default function Header() {
                 </div>
             </div>
             <div className="eggshell"></div>
+            <div className="title-container">
+            <div className="title">
+                <h1 className="title-text text-3xl pt-4 pb-8">
+                    Pondělní povídání
+                </h1>
+                <div className="empty-space"></div>
+            </div>
+            </div>
         </>
     )
 }

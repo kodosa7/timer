@@ -55,13 +55,24 @@ button:hover {
 
 .logo {
     margin-left: 0;
-    padding-right: 1rem;
+    padding: 0 1rem 0 1rem;
 }
 
 .label {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
 }
 
 .empty-space {
     flex-grow: 1;
+}
+
+.title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    max-width: 720px;
+}
+
+.title-text {
+    margin-left: 1rem;
 }
