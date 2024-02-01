@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Buttons from './Buttons';
 
 const Timer = () => {
     const initialTime = 90.5; // 1 minute and 30 seconds in seconds
@@ -60,34 +61,18 @@ const Timer = () => {
     };
 
     return (
-        <div>
-            <h1 className="text-3xl py-8">
-                Pondělní povídání
-            </h1>
-            <h1 className="font-mono font-bold text-8xl py-12 text-black bg-lightblue">
-                {
-                    !endReached
-                        ?
-                            `${String(Math.floor(time / 60)).padStart(2, '0')}${semicolon}${String(Math.floor(time % 60)).padStart(2, '0')}`
-                        :
-                            <span className="text-blue">STOP!</span>
-                }
-            </h1>
-            {
-                !endReached
-                    ?
-                        <button className="text-white mx-2 my-8" onClick={handleButtonClick}>{buttonLabel}</button>
-                    :
-                        <button className="text-white mx-2 my-8" onClick={handleFinalResetClick}>Reset</button>
-            }
-            {
-                !endReached && !isRunning && time !== initialTime
-                    ?
-                        <button className="text-white mx-2 my-8" onClick={handleResetClick}>Reset</button>
-                    :
-                        <span></span>
-            }
-        </div>
+        <Buttons
+            handleButtonClick={handleButtonClick}
+            handleResetClick={handleResetClick}
+            handleFinalResetClick={handleFinalResetClick}
+            buttonLabel={buttonLabel}
+            endReached={endReached}
+            isRunning={isRunning}
+            time={time}
+            initialTime={initialTime}
+            semicolon={semicolon}
+        />
+
     );
 };
 

@@ -575,9 +575,12 @@ video {
   padding-bottom: 1rem;
 }
 
-.py-8{
-  padding-top: 2rem;
+.pb-8{
   padding-bottom: 2rem;
+}
+
+.pt-4{
+  padding-top: 1rem;
 }
 
 .font-mono{
