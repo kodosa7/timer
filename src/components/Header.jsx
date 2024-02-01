@@ -1,4 +1,5 @@
-import Logo from "/src/assets/jglogo.svg";
+import logo from "/src/assets/jglogo.svg";
+import stopwatch from "/src/assets/stopwatch.svg";
 
 export default function Header() {
     return (
@@ -6,12 +7,13 @@ export default function Header() {
             <div className="header-container py-4">
                 <div className="header">
                     <a href="https://junior.guru/" className="logo">
-                        <img src={Logo} alt="JuniorGuru Logo" className="w-28" />
+                        <img src={logo} alt="JuniorGuru Logo" className="w-28" />
                     </a>
                     <div className="label text-lg">
                         Timer
                     </div>
                     <div className="empty-space"></div>
+                    <img className="stopwatch w-14" src={stopwatch} alt="Stopwatch picture"></img>
                 </div>
             </div>
             <div className="eggshell"></div>

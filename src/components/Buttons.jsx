@@ -17,7 +17,7 @@ const Buttons = (props) => {
                         ?
                             `${String(Math.floor(time / 60)).padStart(2, '0')}${semicolon}${String(Math.floor(time % 60)).padStart(2, '0')}`
                         :
-                            <span className="text-blue">STOP!</span>
+                            <span className="text-blue">STOP</span>
                 }
             </h1>
             {

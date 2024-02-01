@@ -60,7 +60,6 @@ button:hover {
     justify-content: space-around;
     align-items: center; 
     max-width: 720px;
-    padding-bottom: 1.3rem;
 }
 
 .eggshell {
@@ -80,6 +79,10 @@ button:hover {
 
 .label {
     margin-left: 1rem;
+}
+
+.stopwatch {
+    margin-right: 1rem;
 }
 
 .empty-space {
