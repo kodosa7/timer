@@ -25,12 +25,12 @@ const Buttons = (props) => {
                     ?
                         <button className="text-white mx-2 my-8" onClick={handleButtonClick}>{buttonLabel}</button>
                     :
-                        <button className="text-white mx-2 my-8" onClick={handleFinalResetClick}>Reset</button>
+                        <button className="button-light text-black mx-2 my-8" onClick={handleFinalResetClick}>Reset</button>
             }
             {
                 !endReached && !isRunning && time !== initialTime
                     ?
-                        <button className="text-white mx-2 my-8" onClick={handleResetClick}>Reset</button>
+                        <button className="button-light text-black mx-2 my-8" onClick={handleResetClick}>Reset</button>
                     :
                         <span></span>
             }

@@ -34,6 +34,23 @@ button:hover {
     background-color: #1448b2;
 }
 
+.button-light {
+    border: 1px solid #343434;
+    border-radius: 8px;
+    padding: 0.355em 2.255em;
+    font-size: 1.2em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.button-light:hover {
+    background-color: #343434;
+    color: #ffffff;
+}
+
 .header-container {
     background-color: #fffa72;
 }
