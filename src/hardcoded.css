@@ -113,34 +113,34 @@ button:hover {
 }
 
 .footer-logo {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin-left: 1rem;
     width: 10rem;
 }
 
 .footer-text {
-    border: 2px solid red;
-    margin-left: 1rem;
+    /* border: 2px solid red; */
+    margin-left: 6vw;
 }
 
 .footer-icons {
-    border: 2px solid red;
-    margin-left: 1rem;
+    /* border: 2px solid red; */
+    margin-left: 6vw;
 }
 
 .timer-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     max-height: 150vh;
 }
 
 .timer {
-    border: 2px solid limegreen;
+    /* border: 2px solid limegreen; */
     padding: 10% 0 10% 0;
     font-size: 7rem;
 }
 
 .buttons {
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
