@@ -66,7 +66,10 @@ button:hover {
 .eggshell {
     background-color: #fffa72;
     background-image: url("./assets/eggshell-i.svg");
-    height: 2rem;
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    background-size: auto 2.5rem;
+    height: 2.5rem;
     width: 100%;
 }
 
