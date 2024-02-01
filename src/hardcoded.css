@@ -4,14 +4,17 @@
 
 body {
     text-align: center;
+    min-height: 400px;
 }
 
 a {
-    color: #1755d1;
+    color: #aaaaaa;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 a:hover {
-    color: #1755d1;
+    color: #aaaaaa;
 }
 
 h1 {
@@ -98,4 +101,46 @@ button:hover {
 
 .title-text {
     margin-left: 1rem;
+}
+
+.footer {
+    background-color: #343434;
+    color: white;
+    padding: 3rem 0 3rem 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo {
+    border: 2px solid red;
+    margin-left: 1rem;
+    width: 10rem;
+}
+
+.footer-text {
+    border: 2px solid red;
+    margin-left: 1rem;
+}
+
+.footer-icons {
+    border: 2px solid red;
+    margin-left: 1rem;
+}
+
+.timer-container {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    max-height: 150vh;
+}
+
+.timer {
+    border: 2px solid limegreen;
+    padding: 10% 0 10% 0;
+    font-size: 7rem;
+}
+
+.buttons {
+    border: 2px solid red;
 }

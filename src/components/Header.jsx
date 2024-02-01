@@ -6,7 +6,7 @@ export default function Header() {
         <>
             <div className="header-container py-4">
                 <div className="header">
-                    <a href="https://junior.guru/" className="logo">
+                    <a href="https://junior.guru/" target="_blank" className="logo">
                         <img src={logo} alt="JuniorGuru Logo" className="w-28" />
                     </a>
                     <div className="label text-lg">

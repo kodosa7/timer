@@ -10,8 +10,8 @@ const Buttons = (props) => {
     const semicolon = props.semicolon;
 
     return (
-        <>
-            <h1 className="font-mono font-bold text-8xl py-12 text-black bg-lightblue">
+        <div className="timer-container">
+            <h1 className="timer font-mono font-bold text-black bg-lightblue">
                 {
                     !endReached
                         ?
@@ -20,21 +20,23 @@ const Buttons = (props) => {
                             <span className="text-blue">STOP</span>
                 }
             </h1>
-            {
-                !endReached
-                    ?
-                        <button className="text-white mx-2 my-8" onClick={handleButtonClick}>{buttonLabel}</button>
-                    :
-                        <button className="button-light text-black mx-2 my-8" onClick={handleFinalResetClick}>Reset</button>
-            }
-            {
-                !endReached && !isRunning && time !== initialTime
-                    ?
-                        <button className="button-light text-black mx-2 my-8" onClick={handleResetClick}>Reset</button>
-                    :
-                        <span></span>
-            }
-        </>
+            <div className="buttons py-4">
+                {
+                    !endReached
+                        ?
+                            <button className="text-white mx-2 my-8" onClick={handleButtonClick}>{buttonLabel}</button>
+                        :
+                            <button className="button-light text-black mx-2 my-8" onClick={handleFinalResetClick}>Reset</button>
+                }
+                {
+                    !endReached && !isRunning && time !== initialTime
+                        ?
+                            <button className="button-light text-black mx-2 my-8" onClick={handleResetClick}>Reset</button>
+                        :
+                            <span></span>
+                }
+            </div>
+        </div>
     );
 };
 

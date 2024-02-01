@@ -556,28 +556,12 @@ video {
   margin-bottom: 2rem;
 }
 
-.w-28{
-  width: 7rem;
-}
-
-.w-32{
-  width: 8rem;
-}
-
-.w-24{
-  width: 6rem;
-}
-
-.w-16{
-  width: 4rem;
-}
-
-.w-12{
-  width: 3rem;
-}
-
 .w-14{
   width: 3.5rem;
+}
+
+.w-28{
+  width: 7rem;
 }
 
 .bg-lightblue{
@@ -585,9 +569,9 @@ video {
   background-color: rgb(244 248 254 / var(--tw-bg-opacity));
 }
 
-.py-12{
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .py-4{
