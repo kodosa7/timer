@@ -10,16 +10,21 @@ const Buttons = (props) => {
     const semicolon = props.semicolon;
 
     return (
-        <div className="timer-container">
-            <h1 className="timer font-mono font-bold text-black bg-lightblue">
-                {
-                    !endReached
-                        ?
-                            `${String(Math.floor(time / 60)).padStart(2, '0')}${semicolon}${String(Math.floor(time % 60)).padStart(2, '0')}`
-                        :
-                            <span className="text-blue">STOP</span>
-                }
-            </h1>
+        <>
+            <main className="bg-lightblue">
+                <div className="main-content">
+                    <h1 className="font-mono font-bold text-black">
+                        {
+                            !endReached
+                                ?
+                                    `${String(Math.floor(time / 60)).padStart(2, '0')}${semicolon}${String(Math.floor(time % 60)).padStart(2, '0')}`
+                                :
+                                    <span className="text-blue">STOP</span>
+                        }
+                    </h1>
+                </div>
+            </main>
+
             <div className="buttons py-4">
                 {
                     !endReached
@@ -36,7 +41,7 @@ const Buttons = (props) => {
                             <span></span>
                 }
             </div>
-        </div>
+        </>
     );
 };
 

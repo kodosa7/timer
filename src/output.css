@@ -564,10 +564,6 @@ video {
   width: 7rem;
 }
 
-.border{
-  border-width: 1px;
-}
-
 .bg-lightblue{
   --tw-bg-opacity: 1;
   background-color: rgb(244 248 254 / var(--tw-bg-opacity));
